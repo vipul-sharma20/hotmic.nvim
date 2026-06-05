@@ -32,13 +32,13 @@ regenerate on install/update via `PackChanged`:
 
 ```lua
 vim.api.nvim_create_autocmd("PackChanged", {
-callback = function(ev)
-  local d = ev.data
-  if d.spec and d.spec.name == "hotmic.nvim"
-     and (d.kind == "install" or d.kind == "update") then
-    vim.schedule(function() vim.cmd("UpdateRemotePlugins") end)
-  end
-end,
+    callback = function(ev)
+      local d = ev.data
+      if d.spec and d.spec.name == "hotmic.nvim"
+         and (d.kind == "install" or d.kind == "update") then
+        vim.schedule(function() vim.cmd("UpdateRemotePlugins") end)
+      end
+    end,
 })
 ```
 
